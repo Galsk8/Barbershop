@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,17 @@
             transform-style: preserve-3d;
             animation: animate 30s infinite linear;
         }
+
         @keyframes animate {
-            0% { transform: perspective(1200px) rotateY(0deg); }
-            100% { transform: perspective(1200px) rotateY(360deg); }
+            0% {
+                transform: perspective(1200px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1200px) rotateY(360deg);
+            }
         }
+
         .pics span {
             position: absolute;
             top: 0;
@@ -29,38 +37,77 @@
             transform-style: preserve-3d;
 
         }
-        .pics span:nth-child(1) { transform: rotateY(0deg) translateZ(240px); }
-        .pics span:nth-child(2) { transform: rotateY(72deg) translateZ(240px); }
-        .pics span:nth-child(3) { transform: rotateY(144deg) translateZ(240px); }
-        .pics span:nth-child(4) { transform: rotateY(216deg) translateZ(240px); }
-        .pics span:nth-child(5) { transform: rotateY(288deg) translateZ(240px); }
+
+        .pics span:nth-child(1) {
+            transform: rotateY(0deg) translateZ(240px);
+        }
+
+        .pics span:nth-child(2) {
+            transform: rotateY(72deg) translateZ(240px);
+        }
+
+        .pics span:nth-child(3) {
+            transform: rotateY(144deg) translateZ(240px);
+        }
+
+        .pics span:nth-child(4) {
+            transform: rotateY(216deg) translateZ(240px);
+        }
+
+        .pics span:nth-child(5) {
+            transform: rotateY(288deg) translateZ(240px);
+        }
 
         .pics span img {
             width: 65%;
             height: 90%;
-            margin:2.5% 0;
+            margin: 2.5% 0;
             object-fit: cover;
             border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
             <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f488.svg" alt="Barber Shop Logo" />
         </div>
-        <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" /></a>
-            <a href="https://twitter.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" /></a>
-            <a href="https://instagram.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" /></a>
-            <a href="https://tiktok.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" /></a>
+
+        <div class="offScreenMenu">
+            <ul>
+                <li><a href="./index.html" style="color: #333; text-decoration: none;">Home</a></li>
+                <li><a href="./team.html" style="color: #333; text-decoration: none;">Team</a></li>
+                <li><a href="./about.html" style="color: #333; text-decoration: none;">About</a></li>
+            </ul>
         </div>
+
+        <nav>
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><img
+                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" /></a>
+            <a href="https://twitter.com" target="_blank"><img
+                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" /></a>
+            <a href="https://instagram.com" target="_blank"><img
+                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                    alt="Instagram" /></a>
+            <a href="https://tiktok.com" target="_blank"><img
+                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" /></a>
+        </div>
+
         <nav class="nav-links">
             <a href="./index.html">Home</a>
             <a href="./team.html">Team</a>
             <a href="./about.html">About</a>
-            <a href="#" class="active">Gallery</a>
+            <a href="#">Gallery</a>
         </nav>
     </header>
     <div class="pics">
@@ -71,4 +118,5 @@
         <span><img src="./pics/reference/Zsuzsi.png" alt=""></span>
     </div>
 </body>
+<script src="./booking.js"></script>
 </html>

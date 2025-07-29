@@ -29,6 +29,96 @@ header {
   height: 40px;
 }
 
+/* Alapból rejtve, max-height:0, overflow:hidden */
+.offScreenMenu {
+  text-align: center;
+  background-color: #e63946;
+  position: absolute;
+  top: 150px;
+  /* hamburger alatt egy kicsivel, állítsd a header magassághoz! */
+  right: 20px;
+  left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  transition: max-height 0.4s cubic-bezier(.4, 0, .2, 1);
+  z-index: 101;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  font-size: 2rem;
+}
+
+/* Aktív, le van „gurítva” */
+.offScreenMenu.active {
+  max-height: 400px;
+  /* A tartalomtól függően növeld! */
+  /* Alternatíva: max-height: 80vh; */
+}
+
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: #111;
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+}
+
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 25px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+.ham-menu span:nth-child(2) {
+  opacity: 1;
+  top: 50%;
+}
+
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+
+/* ACTIVE ÁLLAPOT -- X animáció */
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 .social-icons {
   display: flex;
   gap: 45px;
@@ -55,6 +145,7 @@ header {
   font-weight: bold;
   text-decoration: none;
 }
+
 .contact-phone a:hover {
   text-decoration: underline;
 }
@@ -66,7 +157,7 @@ header {
   border-radius: 10px;
   text-decoration: none;
   font-size: 14px;
-  box-shadow: 
+  box-shadow:
     3px 3px 6px rgba(0, 0, 0, 0.6),
     3px 3px 6px white;
   transition: all 0.3s ease;
@@ -119,7 +210,7 @@ header {
   border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 
+  box-shadow:
     4px 4px 10px rgba(0, 0, 0, 0.4),
     -4px -4px 10px rgba(255, 255, 255, 0.05);
   transition: background 0.3s ease;
@@ -154,7 +245,7 @@ header {
 .team-card {
   background: #181818;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   padding: 28px 24px 18px 24px;
   width: 220px;
   text-align: center;
@@ -185,26 +276,102 @@ header {
   margin: 2px 0;
   color: #ccc;
   font-size: 15px;
-} 
+}
+
+.ham-menu {
+  display: none;
+}
 
 /* Responsiveness */
-@media (max-width: 900px) {
+@media(max-width: 900px) {
   header {
-    flex-direction: column;
-    gap: 20px;
+    max-width: 100%;
+    display: flex;
+    padding: 10px 0px;
+  }
+
+  .ham-menu {
+    padding-left: 20px;
+    width: 40px;
+    display: flex;
+  }
+
+  .social-icons {
+    align-items: flex-end;
+    display: flex;
+    padding-right: 20px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
   }
 
   .hero-section {
+    margin: 20px;
+    max-width: 100%;
+    padding: 10px;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-left {
+    margin: 0px;
+  }
+
+  h1 {
     text-align: center;
   }
 
-  .hero-left, .hero-right {
-    max-width: 100%;
+  h2 {
+    text-align: center;
   }
-}
-@media (max-width: 600px) {
-  .hero-right {
-    display: none;
+
+  .offScreenMenu {
+    top: 100px;
   }
+
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+  }
+
+  .pics {
+    width: 98vw;
+    height: 98vw;
+    max-width: 370px;
+    max-height: 370px;
+    min-width: 180px;
+    min-height: 180px;
+    margin: 12vw auto 0 auto;
+  }
+
+  .pics span img {
+    width: 84%;
+    height: 90%;
+    margin: 4% 0;
+  }
+
+  .about1 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #fff;
+    margin: 5px 0;
+  }
+
+  .about {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: #ccc;
+    margin: 40px 20px;
+    max-width: 90%;
+  }
+
 }

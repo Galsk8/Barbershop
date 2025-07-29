@@ -1,3 +1,12 @@
+//Hamburger menu
+const hamMenu = document.querySelector('.ham-menu');
+const offScreenMenu = document.querySelector('.offScreenMenu');
+
+hamMenu.addEventListener('click', () => {
+  hamMenu.classList.toggle('active'); 
+  offScreenMenu.classList.toggle('active');
+});
+
 //Select the book-btn button.
 const bookBtn = document.querySelector('.book-btn');
 //select the appointment-modal element.
@@ -63,6 +72,12 @@ function closeModal() {
   modal.style.display = 'none';
 }
 
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) { //if the click is on the modal background
+    closeModal(); //then close the modal
+  }
+});
+
 
 function submitAppointment() {
     //get the fullname input value
@@ -75,6 +90,7 @@ function submitAppointment() {
     alert('Please select a date and hour!');
     return;
   }
+
 //get the booked appointments from localStorage
   const appointments = getAppointments(); 
 
